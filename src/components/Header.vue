@@ -35,6 +35,7 @@ export default {
         { title: "Todo", to: "/todo" },
         { title: "Calendar", to: "/calendar" },
         { title: "MarkDown", to: "/markdown" },
+        { title: "Calculator", to: "/calculator" },
       ],
     };
   },
