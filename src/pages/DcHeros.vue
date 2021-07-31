@@ -12,6 +12,7 @@
           type="text"
           v-model.trim="inputValue"
           placeholder="Todo"
+          autofocus
           class="w-10/12 pl-2 border box-border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
         />
         <input

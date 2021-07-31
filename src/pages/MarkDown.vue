@@ -3,9 +3,7 @@
     <h1 class=" text-black font-bold text-3xl">Markdown</h1>
   </section>
   <section class="md:flex sm:block md:justify-start mb-10">
-    <article
-      class="sm:w-full sm:mx-10 md:w-6/12 md:ml-20 h-screen sm:mb-20 bg-gray-300"
-    >
+    <article class="markdown md:ml-20 sm:mb-20 bg-gray-300">
       <textarea
         :value="markdown"
         @input="handleChange"
@@ -14,7 +12,7 @@
       ></textarea>
     </article>
     <article
-      class="sm:w-full sm:mx-10 md:w-6/12 h-screen md:mr-20 border bg-gray-100"
+      class="markdown md:mr-20 border bg-gray-100"
       v-html="markedText"
     ></article>
   </section>
@@ -45,4 +43,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.markdown {
+  @apply sm:w-full sm:mx-10 md:w-6/12 h-screen border;
+}
+</style>
