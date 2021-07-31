@@ -1,14 +1,18 @@
 <template>
   <section class="w-full text-center">
     <header class="my-4">
-      <h1 class="text-lg font-bold">Calendar</h1>
+      <h1 class=" text-black font-bold text-3xl">Calender</h1>
     </header>
     {{ getCurrentDate() }}
-    <section class="flex justify-between w-6/12 m-auto">
+    <section
+      class="flex justify-between md:w-6/12 sm:w-full sm: mx-10 md:m-auto"
+    >
       <p class="font-bold text-lg pl-8">{{ currentMonthName }}</p>
       <p class="font-bold text-lg pr-8">{{ currentYear }}</p>
     </section>
-    <section class="flex justify-center w-6/12 m-auto">
+    <section
+      class="flex justify-center md:w-6/12 sm:w-full sm: mx-10 md:m-auto"
+    >
       <p
         v-for="day in days"
         :key="day"
@@ -18,7 +22,7 @@
         {{ day }}
       </p>
     </section>
-    <section class="flex flex-wrap w-6/12 m-auto">
+    <section class="flex flex-wrap md:w-6/12 sm:w-full sm: mx-10 md:m-auto">
       <p
         v-for="num in getStartDay()"
         :key="num"
@@ -35,8 +39,10 @@
         {{ num }}
       </p>
     </section>
-    <section class="flex justify-between w-6/12 m-auto  mt-4">
-      <button class="px-8 bg-gray-600 rounded-sm text-white" @click="prev">
+    <section
+      class="flex justify-between md:w-6/12 sm:w-full sm:mx-10 md:m-auto pt-10"
+    >
+      <button class="px-8 bg-gray-600 rounded-sm text-white " @click="prev">
         Prev
       </button>
       <button class="px-8 bg-gray-600 rounded-sm text-white" @click="next">

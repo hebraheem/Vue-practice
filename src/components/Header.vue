@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       links: [
-        { title: "Dc Heros", to: "/heros" },
+        { title: "Todo", to: "/todo" },
         { title: "Calendar", to: "/calendar" },
         { title: "MarkDown", to: "/markdown" },
       ],

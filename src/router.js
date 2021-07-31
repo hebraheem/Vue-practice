@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/heros", component: DcHeros },
+  { path: "/todo", component: DcHeros },
   { path: "/calendar", component: Calendar },
   { path: "/markdown", component: MarkDown },
 ];
