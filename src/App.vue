@@ -27,6 +27,10 @@ export default {
     });
   },
 
+  unmounted() {
+    this.$store.commit("clearValut");
+  },
+
   methods: {},
 };
 </script>
