@@ -12,7 +12,7 @@
         <button
           v-if="!useAuthentucatedUser?.isLoggedIn"
           class="mr-10 "
-          @click="$emit('open-modal')"
+          @click="store.commit('setModal', true)"
         >
           LogIn
         </button>
@@ -26,10 +26,12 @@
 
 <script>
 import firebase from "../utils/firebase";
+import store from "../store/index";
 
 export default {
   data() {
     return {
+      store: store,
       links: [
         { title: "Todo", to: "/todo" },
         { title: "Calendar", to: "/calendar" },

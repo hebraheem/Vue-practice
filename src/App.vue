@@ -1,7 +1,7 @@
 <template>
-  <Header @open-modal="isModalOpen = true" />
+  <Header />
   <teleport to="body">
-    <LoginModal v-if="isModalOpen" @close-modal="isModalOpen = false" />
+    <LoginModal />
   </teleport>
   <router-view></router-view>
 </template>
@@ -13,11 +13,6 @@ import firebase from "./utils/firebase";
 
 export default {
   components: { Header, LoginModal },
-  data() {
-    return {
-      isModalOpen: false,
-    };
-  },
 
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {

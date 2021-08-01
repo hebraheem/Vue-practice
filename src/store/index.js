@@ -21,11 +21,7 @@ const store = createStore({
       }
     },
 
-    setOpenModal(state, payload) {
-      state.isModalOpen = payload;
-    },
-
-    closeModal(state, payload) {
+    setModal(state, payload) {
       state.isModalOpen = payload;
     },
   },

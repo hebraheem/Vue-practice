@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="isModalOpen">
     <section
-      @click="closeModal"
+      @click="store.commit('setModal', false)"
       class="z-20 h-screen w-screen bg-gray-300 fixed top-0 opacity-50"
     ></section>
     <div class="absolute inset-0">
@@ -10,7 +10,7 @@
           <div class="relative">
             <button
               class="border text-red-500 px-2 rounded-lg absolute top-0 right-0"
-              @click="closeModal"
+              @click="store.commit('setModal', false)"
             >
               X
             </button>
@@ -53,6 +53,7 @@
 
 <script>
 import firebase from "../utils/firebase";
+import store from "../store/index";
 
 export default {
   data() {
@@ -60,7 +61,14 @@ export default {
       email: "",
       password: "",
       isLoading: false,
+      store: store,
     };
+  },
+
+  computed: {
+    isModalOpen() {
+      return this.$store.state.isModalOpen;
+    },
   },
 
   methods: {
@@ -74,7 +82,7 @@ export default {
           this.isLoading = false;
           this.email = "";
           this.password = "";
-          this.closeModal();
+          this.$store.commit("setModal", false);
         })
         .catch((error) => {
           var errorMessage = error.message;
@@ -82,9 +90,7 @@ export default {
           this.isLoading = false;
         });
     },
-    closeModal() {
-      this.$emit("close-modal");
-    },
+
     googleLogin() {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase
