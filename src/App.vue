@@ -1,8 +1,5 @@
 <template>
-  <Header
-    @open-modal="isModalOpen = true"
-    :useAuthentucatedUser="useAuthentucatedUser"
-  />
+  <Header @open-modal="isModalOpen = true" />
   <teleport to="body">
     <LoginModal v-if="isModalOpen" @close-modal="isModalOpen = false" />
   </teleport>
@@ -19,19 +16,18 @@ export default {
   data() {
     return {
       isModalOpen: false,
-      useAuthentucatedUser: { isLoggedIn: false, user: {} },
     };
   },
-  methods: {},
+
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.useAuthentucatedUser = { isLoggedIn: true, user };
-      } else {
-        this.useAuthentucatedUser = { isLoggedIn: false, user: {} };
+        this.$store.commit("setAuthUser", user);
       }
     });
   },
+
+  methods: {},
 };
 </script>
 

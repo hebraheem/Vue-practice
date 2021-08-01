@@ -57,11 +57,12 @@ import firebase from "../utils/firebase";
 export default {
   data() {
     return {
-      email: "hebraheem@gmail.com",
-      password: "password",
+      email: "",
+      password: "",
       isLoading: false,
     };
   },
+
   methods: {
     handleSubmit() {
       this.isLoading = true;

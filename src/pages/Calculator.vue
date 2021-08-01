@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted, ref } from "vue";
+import { ref } from "vue";
+import useWindowEvent from "../utils/hooks/useWindowEvent";
 
 export default {
   setup() {
@@ -50,14 +51,13 @@ export default {
     const prevNumber = ref("");
     const operators = ref(["+", "-", "*", "/"]);
     const selectedOperator = ref("");
-    const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
     function pressed(press) {
       if (press === "=" || press === "Enter") return calculate();
       else if (press === "c") clear();
       else if (operators.value.includes(press)) performOperation(press);
-      else if (numbers.includes(press)) appendNumber(press);
-      else appendNumber(press);
+      else if (number.includes(press)) appendNumber(press);
     }
 
     function appendNumber(press) {
@@ -106,16 +106,15 @@ export default {
     }
 
     function handleKeyDown(e) {
-      pressed(e.key);
+      let keyPress;
+      const keybordPress = pressed(Number(e.key));
+      if (keybordPress) keyPress = keybordPress;
+      else keyPress = null;
+
+      return keyPress;
     }
 
-    onMounted(() => {
-      window.addEventListener("keydown", handleKeyDown);
-    });
-
-    onUnmounted(() => {
-      window.removeEventListener("keydown", handleKeyDown);
-    });
+    useWindowEvent("keypress", handleKeyDown);
 
     return {
       currentNumber,

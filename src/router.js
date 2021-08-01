@@ -4,6 +4,7 @@ import Calendar from "./pages/Calendar";
 import MarkDown from "./pages/MarkDown";
 import Home from "./pages/Home";
 import Calculator from "./pages/Calculator";
+import Chats from "./pages/Chats";
 
 const routes = [
   { path: "/", component: Home },
@@ -11,6 +12,7 @@ const routes = [
   { path: "/calendar", component: Calendar },
   { path: "/markdown", component: MarkDown },
   { path: "/calculator", component: Calculator },
+  { path: "/chats", component: Chats },
 ];
 
 const router = createRouter({

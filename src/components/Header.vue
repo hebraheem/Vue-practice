@@ -28,7 +28,6 @@
 import firebase from "../utils/firebase";
 
 export default {
-  props: ["useAuthentucatedUser"],
   data() {
     return {
       links: [
@@ -36,10 +35,15 @@ export default {
         { title: "Calendar", to: "/calendar" },
         { title: "MarkDown", to: "/markdown" },
         { title: "Calculator", to: "/calculator" },
+        { title: "Chats", to: "/chats" },
       ],
     };
   },
-
+  computed: {
+    useAuthentucatedUser() {
+      return this.$store.state.useAuthentucatedUser;
+    },
+  },
   methods: {
     signOutUser() {
       firebase
@@ -47,6 +51,7 @@ export default {
         .signOut()
         .then(() => {
           // Sign-out successful.
+          this.$store.commit("clearVault");
         })
         .catch((error) => {
           // An error happened.
