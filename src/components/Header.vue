@@ -38,6 +38,8 @@ export default {
         { title: "MarkDown", to: "/markdown" },
         { title: "Calculator", to: "/calculator" },
         { title: "Chats", to: "/chats" },
+        { title: "Object Detection", to: "/object-detection" },
+        { title: "Modal", to: "/modal" },
       ],
     };
   },
